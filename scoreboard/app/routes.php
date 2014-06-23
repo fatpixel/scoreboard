@@ -10,17 +10,22 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-use Illuminate\Http\JsonResponse;
 
+/**
+ * Helpful Routing Patterns
+ */
 Route::pattern('player_id', '\d+');
 Route::pattern('points', '[0-9]{1,2}');
 
+/**
+ * API ROUTES ==================================
+ */
 Route::get('/', 'ScoreboardController@getIndex');
 Route::get('/about', 'ScoreboardController@getAbout');
 
-// =============================================
-// API ROUTES ==================================
-// =============================================
+/**
+ * API ROUTES ==================================
+ */
 Route::group(
     ['prefix' => 'api'],
     function () {
@@ -36,7 +41,6 @@ Route::group(
  * CATCH ALL ROUTE =============================
  *
  * all routes that are not home or api will be redirected to the scoreboard
- *
  */
 App::missing(
     function ($exception) {

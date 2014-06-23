@@ -7,13 +7,12 @@ alias -- -="cd -"
 # Prevent common typos
 alias cd..="cd .."
 
-
 alias ls="ls -Flah --color=yes "
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
-
+alias art='php artisan '
 
 alias h='cd ~'
 alias c='clear'
