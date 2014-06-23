@@ -1,0 +1,26 @@
+html {
+    position: relative !important;
+    min-height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0 0 50px; /* bottom = footer height */
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  color: #fff;
+  font-family: "petala-pro", "Helvetica Neue", sans-serif;
+//  font-size: 24px;
+  text-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.4);
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+}

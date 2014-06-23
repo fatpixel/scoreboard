@@ -1,0 +1,96 @@
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en"> <![endif]-->
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title' or 'Scoreboard')</title>
+
+
+    <link rel="stylesheet" href="assets/css/vendor.min.css"/>
+    <link rel="stylesheet" href="assets/css/scoreboard.min.css"/>
+    <script src="assets/js/modernizr.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+
+    <div class="row">
+        <div id="scoreboard"
+             class="small-12 small-centered medium-10 medium-centered large-8 large-centered columns panel">
+
+            <div class="player ">
+                <span class="name"></span>
+                <span class="score"></span>
+            </div>
+
+            <div class="player ">
+                <span class="name">Ada Lovelace</span>
+                <span class="score">8375</span>
+            </div>
+
+            <div class="player ">
+                <span class="name">Marie Curie</span>
+                <span class="score">8340</span>
+            </div>
+
+            <div class="player ">
+                <span class="name">Claude Shannon</span>
+                <span class="score">8300</span>
+            </div>
+
+            <div class="player ">
+                <span class="name">Carl Friedrich Gauss</span>
+                <span class="score">8185</span>
+            </div>
+
+            <div class="player ">
+                <span class="name">Grace Hopper</span>
+                <span class="score">8185</span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 small-centered medium-10 medium-centered large-8 large-centered columns panel">
+            <div class="none">Click a player to select</div>
+            <div class="details">
+                <div class="name"></div>
+                <input type="button" value="Give 5 points" class="inc">
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="row">
+    <div class="small-12 small-centered medium-10 medium-centered large-8 large-centered columns panel radius">
+        <h1>Yo Foundation 5!</h1>
+        <ul>
+            <li>Ruby-Sass stylesheet compilation (.scss)</li>
+            <li>Server with LiveReload</li>
+            <li>Publishing to public directory</li>
+            <li>JSHint</li>
+            <li>Grunt Bower install</li>
+            <li>Imagemin</li>
+        </ul>
+        <h1>Grunt tasks:</h1>
+        <ul>
+            <li>'grunt' - watching (Sass, Server on 127.0.0.1:9000 with LiveReload)</li>
+            <li>'grunt compile-sass' - Sass</li>
+            <li>'grunt validate-js' - JSHint</li>
+            <li>'grunt bower-install' - injecting bower libraries</li>
+            <li>'grunt publish' - public directory</li>
+            <li>'grunt server-public' - server on 127.0.0.1:9001 - public directory (preview only)</li>
+        </ul>
+    </div>
+</div>
+
+<script src="assets/js/vendor.min.js"></script>
+<script src="assets/js/foundation.min.js"></script>
+<script src="assets/js/scoreboard.min.js"></script>
+</body>
+</html>

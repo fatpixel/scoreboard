@@ -62,5 +62,11 @@ class Homestead
         end
       end
     end
+
+    # Install Sass (Ruby Gem)
+    config.vm.provision "shell" do |s|
+      s.inline = "gem install sass"
+    end
+
   end
 end

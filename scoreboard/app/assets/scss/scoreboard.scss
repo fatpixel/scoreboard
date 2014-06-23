@@ -1,0 +1,138 @@
+
+@import "normalize";
+@import "settings";
+
+// Make sure the charset is set appropriately
+@charset "UTF-8";
+
+// Behold, here are all the Foundation components.
+@import
+  "foundation/components/grid",
+  "foundation/components/accordion",
+  "foundation/components/alert-boxes",
+  "foundation/components/block-grid",
+  "foundation/components/breadcrumbs",
+  "foundation/components/button-groups",
+  "foundation/components/buttons",
+  "foundation/components/clearing",
+  "foundation/components/dropdown",
+  "foundation/components/dropdown-buttons",
+  "foundation/components/flex-video",
+  "foundation/components/forms",
+  "foundation/components/icon-bar",
+  "foundation/components/inline-lists",
+  "foundation/components/joyride",
+  "foundation/components/keystrokes",
+  "foundation/components/labels",
+  "foundation/components/magellan",
+  "foundation/components/orbit",
+  "foundation/components/pagination",
+  "foundation/components/panels",
+  "foundation/components/pricing-tables",
+  "foundation/components/progress-bars",
+  "foundation/components/range-slider",
+  "foundation/components/reveal",
+  "foundation/components/side-nav",
+  "foundation/components/split-buttons",
+  "foundation/components/sub-nav",
+  "foundation/components/switches",
+  "foundation/components/tables",
+  "foundation/components/tabs",
+  "foundation/components/thumbs",
+  "foundation/components/tooltips",
+  "foundation/components/top-bar",
+  "foundation/components/type",
+  "foundation/components/offcanvas",
+  "foundation/components/visibility";
+
+
+@import "base";
+
+//colors
+$color_0: $secondary-color;
+$color_1: $warning-color;
+$color_2: $success-color;
+$color_3: $alert-color;
+
+//fonts
+$font_0: "Helvetica Neue";
+$font_1: Helvetica;
+$font_2: Arial;
+$font_3: sans-serif;
+
+//@extend-elements
+//original selectors
+//.details,  .none
+%extend_1 {
+  font-weight: bold;
+  font-size: rem-calc(20);
+  border: 2px none darken($body-bg, 16%);
+  border-top-style: dotted;
+  margin: 50px 10px;
+  padding: 10px 0;
+}
+
+body {
+  user-select: none;
+}
+
+.player {
+  position: relative;
+  top: 0;
+  cursor: pointer;
+  padding: 5px;
+  width: auto;
+  .name {
+    display: inline-block;
+    min-width: 300px;
+    font-size: rem-calc(24);
+    font-weight: 200;
+    white-space: nowrap;
+  }
+  .highscore {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    font-size: rem-calc(28);
+    font-weight: bold;
+    color: $warning-color;
+    text-shadow: 1px 1px #000, 2px 2px #000, 3px 3px #000, 4px 4px #000, 5px 5px #000, 6px 6px #000;
+    transition: all 0.12s ease-out 0s;
+
+  }
+  &.selected {
+    background-color: $color_1;
+    .highscore {
+      color: $color_2;
+    }
+  }
+}
+
+.details {
+  @extend %extend_1;
+  display: none;
+}
+
+.none {
+  @extend %extend_1;
+  color: $info-color;
+}
+
+.award {
+  cursor: pointer;
+}
+
+#scoreboard.selected {
+
+  & .details {
+    @extend %extend_1;
+    display: block;
+  }
+
+  & .none {
+    @extend %extend_1;
+    display: none;
+  }
+
+}
+

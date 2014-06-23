@@ -1,0 +1,47 @@
+{
+    "name": "laravel/laravel",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.4",
+        "laravel/framework": "~4.2",
+        "barryvdh/laravel-cors": "dev-master"
+    },
+    "require-dev": {
+        "barryvdh/laravel-ide-helper": "dev-master"
+    },
+    "autoload": {
+        "classmap": [
+            "app/controllers",
+            "app/models",
+            "app/database/migrations",
+            "app/database/seeds",
+            "app/tests/TestCase.php"
+        ],
+        "psr-4": {
+            "Fatpixel\\": "app/Fatpixel"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php artisan clear-compiled",
+            "php artisan optimize"
+        ],
+        "post-update-cmd": [
+            "php artisan clear-compiled",
+            "php artisan optimize"
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ]
+    },
+    "suggest": {
+        "cboden/ratchet": "0.3.*",
+        "brainboxlabs/brain-socket": "dev-master"
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "dev"
+}

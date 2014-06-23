@@ -1,0 +1,31 @@
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en"> <![endif]-->
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title' or 'Scoreboard')</title>
+
+    <link rel="stylesheet" href="assets/css/vendor.min.css"/>
+    <link rel="stylesheet" href="assets/css/scoreboard.min.css"/>
+    <script src="assets/js/modernizr.min.js"></script>
+</head>
+<body>
+
+@section('header')
+<header class="row">
+    <div class="small-12 small-centered medium-9 medium-centered large-6 large-centered columns">
+        <h1 class="title">@yield('title')</h1>
+    </div>
+</header>
+@show
+
+@section('content')
+@show
+
+<script src="assets/js/vendor.min.js"></script>
+<script src="assets/js/foundation.min.js"></script>
+<script src="assets/js/scoreboard.min.js"></script>
+</body>
+</html>
+

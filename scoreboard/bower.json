@@ -1,0 +1,10 @@
+{
+  "name": "scoreboard",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "foundation": "zurb/bower-foundation#5.3.0",
+    "Hover": "*",
+    "lodash": "~2.4.1"
+  }
+}

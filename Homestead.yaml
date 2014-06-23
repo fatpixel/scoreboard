@@ -9,12 +9,13 @@ keys:
     - ./_rsa
 
 folders:
-    - map: ./sites/scoreboard/
-      to: /var/www/sites/scoreboard/
+    - map: ./scoreboard/
+      to: /var/www/scoreboard/
+      type: "nfs"
 
 sites:
     - map: scoreboard.192.168.83.47.xip.io
-      to: /var/www/sites/scoreboard/public
+      to: /var/www/scoreboard/public
 
 variables:
     - key: APP_ENV

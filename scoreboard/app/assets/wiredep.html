@@ -1,0 +1,86 @@
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en"> <![endif]-->
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title' or 'Scoreboard')</title>
+
+
+    <!-- build:css assets/css/vendor.min.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="assets/vendor/Hover/css/hover.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css assets/css/scoreboard.min.css -->
+    <link rel="stylesheet" href="assets/css/scoreboard.css">
+    <link rel="stylesheet" href="assets/css/overrides.css">
+    <!-- endbuild -->
+    <!-- build:js assets/js/modernizr.min.js -->
+    <script src="assets/vendor/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+</head>
+<body>
+
+<header class="row">
+    <div class="small-12 small-centered medium-9 medium-centered large-6 large-centered columns">
+        <h1 class="title">Scoreboard</h1>
+    </div>
+</header>
+
+
+<div class="row" id="scoreboard">
+    <div class="small-12 small-centered medium-9 medium-centered large-6 large-centered columns end">
+
+        <ul class="players  no-bullet">
+            <li class="player" data-options="id:1" data-player>
+                <span class="name">The Ultimate Warrior</span>
+                <span class="highscore">585</span>
+            </li>
+            <li class="player" data-options="id:4" data-player>
+                <span class="name">André the Giant</span>
+                <span class="highscore">400</span>
+            </li>
+            <li class="player" data-options="id:2" data-player>
+                <span class="name">"Hacksaw" Jim Duggan</span>
+                <span class="highscore">355</span>
+            </li>
+            <li class="player" data-options="id:5" data-player>
+                <span class="name">Jim Ross</span>
+                <span class="highscore">350</span>
+            </li>
+            <li class="player" data-options="id:3" data-player>
+                <span class="name">"Stone Cold" Steve Austin</span>
+                <span class="highscore">316</span>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="small-12 small-centered medium-9 medium-centered large-6 large-centered columns end">
+        <div class="none  text-center">
+            <small>Click a player to select</small>
+        </div>
+        <div class="details">
+            <label class="name" data-selected-name="" data-selected-id=""></label>
+            <input type="button" class="button secondary expand award" value="Award player 5 points">
+        </div>
+    </div>
+</div>
+
+
+<!-- build:js assets/js/vendor.min.js -->
+<!-- bower:js -->
+<script src="assets/vendor/jquery/dist/jquery.js"></script>
+<script src="assets/vendor/fastclick/lib/fastclick.js"></script>
+<script src="assets/vendor/lodash/dist/lodash.compat.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+<!-- build:js assets/js/foundation.min.js -->
+<script src="assets/vendor/foundation/js/foundation.js"></script>
+<!-- endbuild -->
+<!-- build:js assets/js/scoreboard.min.js -->
+<script src="assets/js/scoreboard.js"></script>
+<!-- endbuild -->
+</body>
+</html>
