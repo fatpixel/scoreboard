@@ -12,13 +12,14 @@ Scoreboard is a simple project which re-implements Meteor's [leaderboard](https:
 
 ## Setup
 #### Install Dependencies
-```$ git clone https://github.com/fatpixel/scoreboard.git  
-$ cd scoreboard/scoreboard  
-$ composer install --dev -vvv --prefer-dist  
-$ npm install -g grunt-cli bower  # may require sudo  
-$ npm install                     # may require sudo  
-$ bower install  
-$ grunt publish         # Invoke Grunt to build/compile frontend assets 
+```bash
+ $ git clone https://github.com/fatpixel/scoreboard.git  
+ $ cd scoreboard/scoreboard  
+ $ composer install --dev -vvv --prefer-dist  
+ $ npm install -g grunt-cli bower  # may require sudo  
+ $ npm install                     # may require sudo  
+ $ bower install  
+ $ grunt publish         # Invoke Grunt to build/compile frontend assets
 ```
 
 ## Contributors
