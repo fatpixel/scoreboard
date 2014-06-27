@@ -1,26 +1,40 @@
 html {
-    position: relative !important;
-    min-height: 100%;
+  position:   relative !important;
+  min-height: 100%;
 }
 
 body {
-  height: 100%;
-  margin: 0 0 50px; /* bottom = footer height */
+  height:  100%;
+  margin:  0 0 50px; /* bottom = footer height */
   padding: 0;
-  width: 100%;
+  width:   100%;
 }
 
 body {
-  color: #fff;
-  font-family: "petala-pro", "Helvetica Neue", sans-serif;
-//  font-size: 24px;
-  text-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.4);
+  text-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.33);
+  user-select: none;
+}
+
+.title {
+  font-weight: 700;
+  font-size:   rem-calc(20);
+  color:       $alert-color;
+  text-shadow: 1px 1px #000, 2px 2px #000, 3px 3px #000, 4px 4px #000, 5px 5px #000;
+}
+
+header {
+  max-width:        none;
+  background-color: $secondary-color;
+  &:first-child {
+    border-top:    solid 2px rgba(0, 0, 0, 0.6);
+    border-bottom: solid 1px rgba(255, 255, 255, 0.33);
+  }
 }
 
 footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 50px;
-    width: 100%;
+  position: absolute;
+  left:     0;
+  bottom:   0;
+  height:   50px;
+  width:    100%;
 }

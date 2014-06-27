@@ -1,43 +1,107 @@
-this.Scoreboard = (function (window, document, $, _) {
+this.Scoreboard = (function (window, document, $, hogan) {
 
     'use strict';
-    var playerData = [],
-        playersTemplate = _.template([
-            '<% _.forEach(data, function(player) { %>',
-            '<li class="player" data-player-id="<%= player.id %>" data-player-name="<%= player.name %>" data-player>',
-            '<span class="name"><%= player.name %></span>',
-            '<span class="highscore"><%= player.highscore %></span>',
-            '</li>',
-            '<% }); %>'
-        ].join('')),
-        docElem = document.documentElement,
-        _userAgentInit = function () {
-            docElem.setAttribute('data-useragent', navigator.userAgent);
+    /**
+     * Shorthand for $.Deferred constructor; reduces $.property lookups
+     *
+     * @constructor
+     */
+    var Deferred = $.Deferred;
+    /**
+     * Shorthand for $.noop
+     *
+     * @constructor
+     */
+    var _noop = $.noop;
+    /**
+     * Get a deferred object
+     *
+     * @access private
+     * @return $.Deferred
+     */
+    var _defer = function () {
+        return new Deferred();
+    };
+    /**
+     *
+     */
+    var $players;
+    /**
+     *
+     * @type {{data: {players: Array}}}
+     */
+    var Hoganizer = {
+            data: {
+                players: []
+            }
         },
-        _initPlayerData = function (data) {
-            playerData = data.players || [];
+        /**
+         *
+         * @returns Deferred
+         * @private
+         */
+        _refreshPlayers = function (playerId) {
+            var deferredRender = _defer();
+
+            deferredRender.done(function (result) {
+                var $rendered = _render(result, Hoganizer.data);
+                if (playerId) {
+                    $rendered.find('[data-player="' + playerId + '"]').addClass('selected');
+                }
+            });
+
+            return _fetchPlayers().done(function (response) {
+                console.log('Players Fetched', response);
+
+                deferredRender.resolve({
+                    players: response.data
+                });
+
+                return deferredRender;
+            });
         },
-        _awardPointsToPlayer = function (points, player_id, cb) {
+        /**
+         *
+         * @param playerId
+         * @param points
+         * @param cb
+         * @returns {*}
+         * @private
+         */
+        _award = function (playerId, points, cb) {
             return $.ajax({
-                url: '/api/players/' + player_id + '/award/' + points,
+                url: '/api/players/' + playerId + '/award/' + points,
                 dataType: 'jsonp',
-                success: cb
+                success: cb || _noop
+            }).done(function () {
+                return _refreshPlayers(playerId);
             });
         },
         _fetchPlayers = function (cb) {
             return $.ajax({
                 url: '/api/players',
                 dataType: 'jsonp',
-                success: cb
+                success: cb || _noop
             });
         },
-        _renderPlayers = function (players) {
-            var html = playersTemplate(players);
-            $('.players').empty().html($(html));
+        _render = function (context, cache) {
+            var rendered = Hoganizer.players.render(
+                context ? context : {
+                    players: context.data || cache.players
+                }
+            );
+
+            $players.empty();
+            return $players.append($(rendered));
         },
         _init = function (selector) {
+
             $(document).foundation();
-            _userAgentInit();
+
+            var source = $('#template--players').html();
+            Hoganizer.players = hogan.compile(source);
+
+            $players = $('ul.players').parent();
 
             return $(selector);
         };
@@ -45,10 +109,10 @@ this.Scoreboard = (function (window, document, $, _) {
 
     return {
         init: _init,
-        setPlayers: _initPlayerData,
-        renderPlayers: _renderPlayers,
+        award: _award,
         fetchPlayers: _fetchPlayers,
-        award: _awardPointsToPlayer
+        refreshPlayers: _refreshPlayers,
+        render: _render
     };
 
-})(this, this.document, jQuery, this._);
+}(this, this.document, jQuery, Hogan));

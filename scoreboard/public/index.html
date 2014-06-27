@@ -7,69 +7,60 @@
     <title>@yield('title' or 'Scoreboard')</title>
 
 
-    <link rel="stylesheet" href="assets/css/vendor.min.css"/>
-    <link rel="stylesheet" href="assets/css/scoreboard.min.css"/>
-    <script src="assets/js/modernizr.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/vendor.min.css"/>
+    <link rel="stylesheet" href="/assets/css/scoreboard.min.css"/>
+    <script src="/assets/js/modernizr.min.js"></script>
 </head>
 <body>
-<div id="wrapper">
 
-    <div class="row">
-        <div id="scoreboard"
-             class="small-12 small-centered medium-10 medium-centered large-8 large-centered columns panel">
+<div class="row" id="scoreboard">
+    <div class="small-12 small-centered medium-9 medium-centered large-6 large-centered columns end">
+        <ul class="players  no-bullet">
 
-            <div class="player ">
-                <span class="name"></span>
-                <span class="score"></span>
-            </div>
-
-            <div class="player ">
+            <li class="player" data-options="id:2" data-player>
                 <span class="name">Ada Lovelace</span>
-                <span class="score">8375</span>
-            </div>
+                <span class="highscore">8375</span>
+            </li>
 
-            <div class="player ">
+            <li class="player" data-options="id:3" data-player>
                 <span class="name">Marie Curie</span>
-                <span class="score">8340</span>
-            </div>
+                <span class="highscore">8340</span>
+            </li>
 
-            <div class="player ">
+            <li class="player" data-options="id:4" data-player>
                 <span class="name">Claude Shannon</span>
-                <span class="score">8300</span>
-            </div>
+                <span class="highscore">8300</span>
+            </li>
 
-            <div class="player ">
+            <li class="player" data-options="id:1" data-player>
                 <span class="name">Carl Friedrich Gauss</span>
-                <span class="score">8185</span>
-            </div>
+                <span class="highscore">8185</span>
+            </li>
 
-            <div class="player ">
+            <li class="player" data-options="id:5" data-player>
                 <span class="name">Grace Hopper</span>
-                <span class="score">8185</span>
-            </div>
+                <span class="highscore">8185</span>
+            </li>
 
-        </div>
+        </ul>
     </div>
 
-    <div class="row">
-        <div class="small-12 small-centered medium-10 medium-centered large-8 large-centered columns panel">
-            <div class="none">Click a player to select</div>
-            <div class="details">
-                <div class="name"></div>
-                <input type="button" value="Give 5 points" class="inc">
-            </div>
-
+    <div class="small-12 small-centered medium-9 medium-centered large-6 large-centered columns end">
+        <div class="none  text-center">
+            <small>Click a player to select</small>
+        </div>
+        <div class="details">
+            <h5 id="player-name" class="name"></h5>
+            <a class="button secondary expand award" id="award" href="#">Award player 5 points</a>
         </div>
     </div>
-
-
 </div>
 
 
 <div class="row">
-    <div class="small-12 small-centered medium-10 medium-centered large-8 large-centered columns panel radius">
-        <h1>Yo Foundation 5!</h1>
-        <ul>
+    <div class="small-12 small-centered medium-9 medium-centered large-6 large-centered columns panel">
+        <h1>Laravel 4 :: Scoreboard!</h1>
+        <ul class="no-bullet">
             <li>Ruby-Sass stylesheet compilation (.scss)</li>
             <li>Server with LiveReload</li>
             <li>Publishing to public directory</li>
@@ -77,8 +68,8 @@
             <li>Grunt Bower install</li>
             <li>Imagemin</li>
         </ul>
-        <h1>Grunt tasks:</h1>
-        <ul>
+        <h3>Grunt tasks:</h3>
+        <ul class="no-bullet">
             <li>'grunt' - watching (Sass, Server on 127.0.0.1:9000 with LiveReload)</li>
             <li>'grunt compile-sass' - Sass</li>
             <li>'grunt validate-js' - JSHint</li>
@@ -89,8 +80,8 @@
     </div>
 </div>
 
-<script src="assets/js/vendor.min.js"></script>
-<script src="assets/js/foundation.min.js"></script>
-<script src="assets/js/scoreboard.min.js"></script>
+<script src="/assets/js/vendor.min.js"></script>
+<script src="/assets/js/foundation.min.js"></script>
+<script src="/assets/js/scoreboard.min.js"></script>
 </body>
 </html>

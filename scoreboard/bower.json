@@ -5,6 +5,6 @@
   "dependencies": {
     "foundation": "zurb/bower-foundation#5.3.0",
     "Hover": "*",
-    "lodash": "~2.4.1"
+    "hogan": "~3.0.2"
   }
 }

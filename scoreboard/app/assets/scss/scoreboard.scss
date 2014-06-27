@@ -1,138 +1,130 @@
 
-@import "normalize";
+@import "../vendor/foundation/scss/normalize";
 @import "settings";
 
 // Make sure the charset is set appropriately
 @charset "UTF-8";
 
-// Behold, here are all the Foundation components.
-@import
-  "foundation/components/grid",
-  "foundation/components/accordion",
-  "foundation/components/alert-boxes",
-  "foundation/components/block-grid",
-  "foundation/components/breadcrumbs",
-  "foundation/components/button-groups",
-  "foundation/components/buttons",
-  "foundation/components/clearing",
-  "foundation/components/dropdown",
-  "foundation/components/dropdown-buttons",
-  "foundation/components/flex-video",
-  "foundation/components/forms",
-  "foundation/components/icon-bar",
-  "foundation/components/inline-lists",
-  "foundation/components/joyride",
-  "foundation/components/keystrokes",
-  "foundation/components/labels",
-  "foundation/components/magellan",
-  "foundation/components/orbit",
-  "foundation/components/pagination",
-  "foundation/components/panels",
-  "foundation/components/pricing-tables",
-  "foundation/components/progress-bars",
-  "foundation/components/range-slider",
-  "foundation/components/reveal",
-  "foundation/components/side-nav",
-  "foundation/components/split-buttons",
-  "foundation/components/sub-nav",
-  "foundation/components/switches",
-  "foundation/components/tables",
-  "foundation/components/tabs",
-  "foundation/components/thumbs",
-  "foundation/components/tooltips",
-  "foundation/components/top-bar",
-  "foundation/components/type",
-  "foundation/components/offcanvas",
-  "foundation/components/visibility";
+// Behold, a minimal selection of Foundation5 components.
+@import "../vendor/foundation/scss/foundation/components/grid";
+// @import "../vendor/foundation/scss/foundation/components/accordion";
+// @import "../vendor/foundation/scss/foundation/components/alert-boxes";
+// @import "../vendor/foundation/scss/foundation/components/block-grid";
+// @import "../vendor/foundation/scss/foundation/components/breadcrumbs";
+@import "../vendor/foundation/scss/foundation/components/button-groups";
+@import "../vendor/foundation/scss/foundation/components/buttons";
+// @import "../vendor/foundation/scss/foundation/components/clearing";
+// @import "../vendor/foundation/scss/foundation/components/dropdown";
+// @import "../vendor/foundation/scss/foundation/components/dropdown-buttons";
+// @import "../vendor/foundation/scss/foundation/components/flex-video";
+@import "../vendor/foundation/scss/foundation/components/forms";
+@import "../vendor/foundation/scss/foundation/components/icon-bar";
+@import "../vendor/foundation/scss/foundation/components/inline-lists";
+// @import "../vendor/foundation/scss/foundation/components/joyride";
+// @import "../vendor/foundation/scss/foundation/components/keystrokes";
+@import "../vendor/foundation/scss/foundation/components/labels";
+// @import "../vendor/foundation/scss/foundation/components/magellan";
+// @import "../vendor/foundation/scss/foundation/components/orbit";
+// @import "../vendor/foundation/scss/foundation/components/pagination";
+@import "../vendor/foundation/scss/foundation/components/panels";
+// @import "../vendor/foundation/scss/foundation/components/pricing-tables";
+// @import "../vendor/foundation/scss/foundation/components/progress-bars";
+// @import "../vendor/foundation/scss/foundation/components/range-slider";
+// @import "../vendor/foundation/scss/foundation/components/reveal";
+@import "../vendor/foundation/scss/foundation/components/side-nav";
+// @import "../vendor/foundation/scss/foundation/components/split-buttons";
+@import "../vendor/foundation/scss/foundation/components/sub-nav";
+// @import "../vendor/foundation/scss/foundation/components/switches";
+@import "../vendor/foundation/scss/foundation/components/tables";
+// @import "../vendor/foundation/scss/foundation/components/tabs";
+// @import "../vendor/foundation/scss/foundation/components/thumbs";
+@import "../vendor/foundation/scss/foundation/components/tooltips";
+// @import "../vendor/foundation/scss/foundation/components/top-bar";
+@import "../vendor/foundation/scss/foundation/components/type";
+// @import "../vendor/foundation/scss/foundation/components/offcanvas";
+@import "../vendor/foundation/scss/foundation/components/visibility";
 
 
 @import "base";
 
 //colors
-$color_0: $secondary-color;
-$color_1: $warning-color;
-$color_2: $success-color;
-$color_3: $alert-color;
+$inset-highlight-color: darken($body-bg, 16%);
 
-//fonts
-$font_0: "Helvetica Neue";
-$font_1: Helvetica;
-$font_2: Arial;
-$font_3: sans-serif;
-
-//@extend-elements
-//original selectors
-//.details,  .none
-%extend_1 {
-  font-weight: bold;
+// @extend-elements
+// original selectors
+// .details,  .none
+%inspection-element {
+  font-weight: 400;
   font-size: rem-calc(20);
-  border: 2px none darken($body-bg, 16%);
+  border: 2px none $inset-highlight-color;
   border-top-style: dotted;
   margin: 50px 10px;
   padding: 10px 0;
 }
 
-body {
-  user-select: none;
+
+.award {
+  cursor: pointer;
 }
 
 .player {
   position: relative;
   top: 0;
   cursor: pointer;
-  padding: 5px;
-  width: auto;
+  padding: 5px 0 10px 20px;
+  width: 100%;
   .name {
     display: inline-block;
-    min-width: 300px;
+    width: 75%;
     font-size: rem-calc(24);
-    font-weight: 200;
+    font-weight: $font-weight-normal;
     white-space: nowrap;
   }
   .highscore {
     display: inline-block;
-    width: 100px;
+    width: auto;
     text-align: right;
     font-size: rem-calc(28);
-    font-weight: bold;
+    font-weight: $font-weight-bold;
     color: $warning-color;
-    text-shadow: 1px 1px #000, 2px 2px #000, 3px 3px #000, 4px 4px #000, 5px 5px #000, 6px 6px #000;
-    transition: all 0.12s ease-out 0s;
+    text-shadow: 1px 1px #000, 2px 2px #000, 3px 3px #000, 4px 4px #000, 5px 5px #000;
+    transition: all 0.1s ease-out 0.1s;
 
   }
   &.selected {
-    background-color: $color_1;
+    background-color: $warning-color;
+    .name {
+      color: $secondary-color;
+      font-weight: $font-weight-bold;
+    }
     .highscore {
-      color: $color_2;
+      color: $success-color;
     }
   }
 }
 
-.details {
-  @extend %extend_1;
-  display: none;
-}
-
-.none {
-  @extend %extend_1;
-  color: $info-color;
-}
-
-.award {
-  cursor: pointer;
-}
-
-#scoreboard.selected {
-
-  & .details {
-    @extend %extend_1;
-    display: block;
-  }
-
-  & .none {
-    @extend %extend_1;
+#scoreboard {
+  .details {
+    @extend %inspection-element;
     display: none;
   }
 
+  .none {
+    @extend %inspection-element;
+    color: $info-color;
+  }
+
+  &.selected {
+
+    & .details {
+      @extend %inspection-element;
+      display: block;
+    }
+
+    & .none {
+      @extend %inspection-element;
+      display: none;
+    }
+  }
 }
 

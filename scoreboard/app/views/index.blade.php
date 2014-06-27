@@ -1,19 +1,22 @@
 @extends('layouts.master')
 
-@section('players')
-<ul class="players  no-bullet">
-    @foreach($players as $player)
-    <li class="player" data-options="id:{{ $player->id }}" data-player>
-        <span class="name">{{ $player->name }}</span>
-        <span class="highscore">{{ $player->highscore }}</span>
-    </li>
-    @endforeach
-</ul>
+
+@section('templates')
+<script id="template--players" type="text/x-hogan-template">
+    <ul class="players  no-bullet">
+        @{{#players}}
+        <li class="player" data-player="@{{id}}">
+            <span class="name">@{{name}}</span>
+            <span class="highscore">@{{highscore}}</span>
+        </li>
+        @{{/players}}
+    </ul>
+</script>
 @stop
 
 
-@section('scoreboard')
-<div class="row" id="scoreboard">
+@section('content')
+<div class="row  scoreboard" id="scoreboard">
     <div class="small-12 small-centered medium-9 medium-centered large-6 large-centered columns end">
         <ul class="players  no-bullet">
 
@@ -32,48 +35,42 @@
 </div>
 @stop
 
+
 @section('javascript')
-    @parent
 <script>
-    (function (Scoreboard) {
+    (function (Scoreboard, selector) {
 
         'use strict';
-        var $scoreboard = Scoreboard.init('#scoreboard');
 
-        Scoreboard.fetchPlayers(Scoreboard.renderPlayers);
+        var $scoreboard = Scoreboard.init(selector);
+
+        Scoreboard.refreshPlayers();
 
         $scoreboard
             .on('click', '[data-player]', function (event) {
+                event.preventDefault();
                 var $this = $(this);
+
                 $('.selected', $scoreboard).removeClass('selected');
 
                 $this.add($scoreboard).toggleClass('selected', (event.target !== this));
 
-                $('#award').data('player_id', $this.attr('data-player-id'));
+                $scoreboard.data('playerId', $this.attr('data-player'));
 
-                $('#player-name').html($this.attr('data-player-name'));
+                $('#player-name').html($this.children('.name').first().text());
 
             })
             .on('click', '#award', function (event) {
                 event.preventDefault();
-                var id = $(this).data('player_id');
-                if (id) {
-                    Scoreboard.award(id, 5, function () {
-                        Scoreboard.fetchPlayers(Scoreboard.renderPlayers)
-                            .always(function(){
-                                $('[data-player-id="' + id + '"]').addClass('selected');
-                            });
-                    });
-                }
+                var id = $scoreboard.data('playerId');
+
+                Scoreboard.award(id, 5);
             });
 
-    })( window.Scoreboard );
+
+        return $scoreboard;
+
+    }(window.Scoreboard, '#scoreboard'));
 
 </script>
 @append
-
-@section('content')
-
-@yield('scoreboard')
-
-@overwrite

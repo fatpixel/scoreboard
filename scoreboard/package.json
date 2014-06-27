@@ -3,14 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "description": "",
-  "homepage": "",
+  "homepage": "https://github.com/fatpixel/scoreboard",
   "author": {
     "name": "David Moseley",
     "email": "inbox@davidmoseley.com"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/fatpixel/scoreboard.git"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
