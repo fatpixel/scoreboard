@@ -11,7 +11,7 @@ keys:
 folders:
     - map: ./scoreboard/
       to: /var/www/scoreboard/
-      type: "nfs"
+      # type: "nfs"
 
 sites:
     - map: scoreboard.192.168.83.47.xip.io
