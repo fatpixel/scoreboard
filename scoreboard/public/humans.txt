@@ -1,0 +1,15 @@
+/* TEAM */
+
+Site: https://github.com/fatpixel
+Twitter: @fatpixeldotcom
+
+/* THANKS */
+
+Taylor Otwell (@taylorotwell) for creating a framework with such an inspirational philosophy.
+Zurb (@ZURB)
+
+/* SITE */
+
+Standards: HTML5, CSS3
+Components: jQuery, Foundation 5.3.0
+Software: PhpStorm, Git, Laravel, Sass
