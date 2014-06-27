@@ -46,7 +46,7 @@ class PlayerApiController extends BaseController
      *
      * @return JsonResponse
      */
-    public function awardPointsToPlayer($points, $player_id)
+    public function awardPointsToPlayer($player_id, $points)
     {
 
         $player = $this->players->findById($player_id);
@@ -71,11 +71,11 @@ class PlayerApiController extends BaseController
             }
 
 
-            return with(new JsonResponse($data, 200, [], JSON_FORCE_OBJECT))->setCallback(
+            return with(new JsonResponse($data, 200, [], JSON_NUMERIC_CHECK))->setCallback(
                 Input::get('callback')
             );
         } else {
-            return with(new JsonResponse($data, 400, [], JSON_FORCE_OBJECT))->setCallback(
+            return with(new JsonResponse($data, 400, [], JSON_NUMERIC_CHECK))->setCallback(
                 Input::get('callback')
             );
         }

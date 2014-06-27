@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
 
+    <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Clear+Sans:200,400,700">
     <link rel="stylesheet" href="{{ asset('assets/css/vendor.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('assets/css/scoreboard.min.css') }}"/>
     <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
@@ -24,6 +25,7 @@
 @section('content')
 @show
 
+@yield('templates')
 
 <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
 <script src="{{ asset('assets/js/foundation.min.js') }}"></script>

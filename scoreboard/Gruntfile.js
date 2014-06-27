@@ -106,6 +106,7 @@ module.exports = function (grunt) {
         useminPrepare: {
             html: ['<%= app.path %>/master.html'],
             options: {
+                root: '.',
                 dest: '<%= dist.path %>'
             }
         },
@@ -173,6 +174,88 @@ module.exports = function (grunt) {
 
     });
 
+    grunt.registerTask('minPrepare', 'Pre-defined usemin configuration', function () {
+
+        grunt.config.merge({
+            concat: {
+                generated: {
+                    files: [
+                        {
+                            dest: '.tmp/concat/assets/css/vendor.min.css',
+                            src: ['app/assets/vendor/Hover/css/hover.css']
+                        },
+                        {
+                            dest: '.tmp/concat/assets/css/scoreboard.min.css',
+                            src: ['app/assets/css/scoreboard.css', 'app/assets/css/overrides.css']
+                        },
+                        {
+                            dest: '.tmp/concat/assets/js/modernizr.min.js',
+                            src: ['app/assets/vendor/modernizr/modernizr.js']
+                        },
+                        {
+                            dest: '.tmp/concat/assets/js/vendor.min.js',
+                            src: [
+                                'app/assets/vendor/hogan/lib/hogan.js',
+                                'app/assets/vendor/jquery/dist/jquery.js',
+                                'app/assets/vendor/fastclick/lib/fastclick.js'
+                            ]
+                        },
+                        {
+                            dest: '.tmp/concat/assets/js/foundation.min.js',
+                            src: ['app/assets/vendor/foundation/js/foundation.js']
+                        },
+                        {
+                            dest: '.tmp/concat/assets/js/scoreboard.min.js',
+                            src: ['app/assets/js/scoreboard.js']
+                        }
+                    ]
+                }
+            },
+
+            uglify: {
+                options: {
+                    preserveComments: 'some',
+                    mangle: false
+                },
+                generated: {
+                    files: [
+                        {
+                            dest: 'public/assets/js/modernizr.min.js',
+                            src: ['.tmp/concat/assets/js/modernizr.min.js']
+                        },
+                        {
+                            dest: 'public/assets/js/vendor.min.js',
+                            src: ['.tmp/concat/assets/js/vendor.min.js']
+                        },
+                        {
+                            dest: 'public/assets/js/foundation.min.js',
+                            src: ['.tmp/concat/assets/js/foundation.min.js']
+                        },
+                        {
+                            dest: 'public/assets/js/scoreboard.min.js',
+                            src: ['.tmp/concat/assets/js/scoreboard.min.js']
+                        }
+                    ]
+                }
+            },
+
+            cssmin: {
+                generated: {
+                    files: [
+                        {
+                            dest: 'public/assets/css/vendor.min.css',
+                            src: ['.tmp/concat/assets/css/vendor.min.css']
+                        },
+                        {
+                            dest: 'public/assets/css/scoreboard.min.css',
+                            src: ['.tmp/concat/assets/css/scoreboard.min.css']
+                        }
+                    ]
+                }
+            }
+        });
+    });
+
 
     grunt.loadNpmTasks('grunt-contrib-sass');
 
@@ -199,6 +282,7 @@ module.exports = function (grunt) {
     grunt.registerTask('validate-js', ['jshint']);
     grunt.registerTask('server-dist', ['connect:dist']);
 
+    grunt.registerTask('build', ['compile-sass', 'clean:dist', 'validate-js', 'useminPrepare', 'copy:dist', 'newer:imagemin', 'concat', 'cssmin', 'uglify', 'usemin']);
     grunt.registerTask('publish', ['compile-sass', 'clean:dist', 'validate-js', 'useminPrepare', 'copy:dist', 'newer:imagemin', 'concat', 'cssmin', 'uglify', 'usemin']);
 
 };

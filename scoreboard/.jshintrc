@@ -13,7 +13,8 @@
 	"quotmark": "single",
 	"globals": {
 		"jQuery": false,
-		"$": false
+		"$": false,
+		"Hogan": false
 	},
     "jquery": true,
     "white": true
